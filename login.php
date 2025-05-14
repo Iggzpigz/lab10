@@ -17,8 +17,12 @@ $query = "SELECT * FROM users WHERE username = '$username' AND password = '$pass
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
 
-if ($user["username"] == $user["username"]) {
+if ($user) {
+    $_SESSION["username"] = $user["username"];
     header("Location: profile.php");
-
+    exit();
+} else {
+    echo"Incorrect username or password";
+}
 
 ?>
