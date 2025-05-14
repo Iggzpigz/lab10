@@ -1,3 +1,6 @@
+<html>
+<head></head>
+<body>
 <?php
 $host = "localhost";
 $username = "root";
@@ -23,3 +26,5 @@ if ($user) {
 }
 
 ?>
+</body>
+</html>
