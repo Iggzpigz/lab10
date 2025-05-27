@@ -7,6 +7,10 @@ session_start();
 
 $conn = mysqli_connect($host, $username, $password, $database);
 
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
