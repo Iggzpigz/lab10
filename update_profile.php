@@ -39,7 +39,7 @@ $currentEmail = $user ? htmlspecialchars($user['email']) : '';
 ?>
 
 <h2>Edit Profile</h2>
-<form method="post" action="profile.php">
+<form method="post" action="">
     <label>New Email:</label>
     <input type="email" name="email" value="<?php echo $currentEmail; ?>" required><br>
     <input type="submit" value="Update Email">
