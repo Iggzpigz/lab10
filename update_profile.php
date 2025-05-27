@@ -3,9 +3,6 @@ session_start();
 require_once "settings.php"; // contains $host, $username, $password, $database
 
 $conn = mysqli_connect($host, $username, $password, $database);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
 
 // Ensure user is logged in
 if (!isset($_SESSION['username'])) {
@@ -24,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $escapedEmail = mysqli_real_escape_string($conn, $newEmail);
         $escapedUsername = mysqli_real_escape_string($conn, $currentUsername);
 
-        $query = "UPDATE user SET email = '$escapedEmail' WHERE username = '$escapedUsername'";
+        $query = "UPDATE users SET email = '$escapedEmail' WHERE username = '$escapedUsername'";
 
         if (mysqli_query($conn, $query)) {
             echo "Email updated successfully!";
