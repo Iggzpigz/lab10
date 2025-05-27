@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Get current email to display
-$query = "SELECT email FROM user WHERE username = '$currentUsername'";
+$query = "SELECT email FROM users WHERE username = '$currentUsername'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
 $currentEmail = $user ? htmlspecialchars($user['email']) : '';
