@@ -19,7 +19,7 @@ $user = mysqli_fetch_assoc($result);
 
 if ($user) {
   $_SESSION['username'] = $user['username'];
-  header("Location: welcome.php");
+  header("Location: profile.php");
   exit();
 } else {
   echo "❌ Incorrect username or password.";
