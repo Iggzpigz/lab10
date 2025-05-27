@@ -14,7 +14,7 @@ $password = trim($_POST['password']);
 $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_assoc($result);
-
+echo"$row[password]";
 if ($user) {
     $_SESSION["username"] = $user["username"];
     header("Location: profile.php");
