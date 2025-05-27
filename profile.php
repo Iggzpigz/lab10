@@ -17,6 +17,9 @@ if ($_SESSION['username']) {
         echo "<p>". $row["email"] ."</p>";
     }
 }
-echo"<a href='update_profile.php>update profile</a>";
+
 
 ?>
+<html>
+    <body><a href="update_profile.php">update profile</a></body>
+</html>
