@@ -5,7 +5,7 @@ session_start();
 $conn = mysqli_connect($host, $username, $password, $database);
 
 if ($conn) {
-    $query = "SELECT * FROM users"
+    $query = "SELECT * FROM users";
     $result = mysqli_query($conn, $query);
     if ($result) {}
     else {}
