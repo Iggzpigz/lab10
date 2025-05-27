@@ -22,19 +22,29 @@ if (!$conn) {
     <input type="submit" value="login">
 </form>
 <?php
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
 
-// Simple query to check credentials
-$query = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
-$result = mysqli_query($conn, $query);
-$user = mysqli_fetch_assoc($result);
-if ($user) {
-    $_SESSION["username"] = $user["username"];
-    header("Location: profile.php");
-    exit();
-} else {
-    echo "Incorrect username or password";
+    if ($username && $password) {
+        $query = "SELECT * FROM user WHERE username = ?";
+
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $user = mysqli_fetch_assoc($result);
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION["username"] = $user["username"];
+            header("Location: profile.php");
+            exit();
+        } else {
+            echo "<p style='color:red;'>Incorrect username or password.</p>";
+        }
+    } else {
+        echo "<p style='color:red;'>Please enter both username and password.</p>";
+    }
 }
 ?>
 </body>
