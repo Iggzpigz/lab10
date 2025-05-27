@@ -25,7 +25,7 @@ if (!$conn) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = trim($_POST['password'] ?? '');
-
+    echo "<pre>"; print_r($_POST); echo "</pre>";
     if ($username && $password) {
         $query = "SELECT * FROM user WHERE username = ?";
 
