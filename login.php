@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($_POST['password'] ?? '');
     echo "<pre>"; print_r($_POST); echo "</pre>";
     if ($username && $password) {
-        $query = "SELECT * FROM user WHERE username = ?";
+        $query = "SELECT * FROM users WHERE username = ?";
 
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, "s", $username);
