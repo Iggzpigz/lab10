@@ -13,8 +13,8 @@ $user  = mysqli_fetch_assoc($result);
 if (!$user) {
     $username = trim($_POST['username']);
     $_SESSION['username'] = $username;
-    echo"Welcome, " . $_SESSION["username"];
-    echo" " . $_SESSION["email"];
+    echo"Welcome, " . $_SESSION['username'];
+    echo" " . $_SESSION['email'];
 }
 
 
