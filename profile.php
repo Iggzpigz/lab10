@@ -11,11 +11,12 @@ if ($conn) {
     else {}
     mysqli_close($conn);
 } else echo"<p> Unable to connect to the database";
-while ($row = mysqli_fetch_assoc($result)) {
-    echo "<p> Welcome". $row["username"] ."</p>";
-    echo "<p>". $row["email"] ."</p>";
+if ($_SESSION['username']) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<p> Welcome". $row["username"] ."</p>";
+        echo "<p>". $row["email"] ."</p>";
+    }
 }
-
 
 
 ?>
