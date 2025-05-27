@@ -1,20 +1,7 @@
 <html>
 <head></head>
 <body>
-<html>
-    <head></head>
-    <body>
-        <form method="post" action="login.php">
-            <label>Username</label>
-                <input type="text" name="username"required>
-            <label>Password</label>
-                <input type="password" name="password"required>
-            <label>Email</label>
-                <input type="email" name="email">
-            <input type="submit" value="login">
-        </form>
-    </body>
-</html>
+
 <?php
 require_once "settings.php";
 session_start(); 
@@ -24,7 +11,17 @@ $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
-
+?>
+<form method="post" action="login.php">
+    <label>Username</label>
+        <input type="text" name="username"required>
+    <label>Password</label>
+        <input type="password" name="password"required>
+    <label>Email</label>
+        <input type="email" name="email">
+    <input type="submit" value="login">
+</form>
+<?php
 $username = trim($_POST['username']);
 $password = trim($_POST['password']);
 
