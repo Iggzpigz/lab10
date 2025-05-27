@@ -44,4 +44,5 @@ $currentEmail = $user ? htmlspecialchars($user['email']) : '';
     <input type="email" name="email" value="<?php echo $currentEmail; ?>" required><br>
     <input type="submit" value="Update Email">
 </form>
+<a href="profile.php">back to profile</a>
 ?>
